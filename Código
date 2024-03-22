@@ -1,0 +1,274 @@
+código finalizado: <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Compatibilidade</title>
+    <style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+#container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    color: #ff69b4;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.question {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.answer-list {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.answer-list li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    margin: 10px;
+    padding: 12px 24px;
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #e64994;
+}
+
+.result {
+    font-size: 18px;
+    margin-top: 30px;
+}
+    </style>
+</head>
+<body>
+     <div class="question">
+        <p>1. Qual sua cor favorita?</p>
+        <div class="btn-container">
+            <button class="btn color-btn" data-color="#ffcccc" data-color-name="Rosa">Rosa</button>
+            <button class="btn color-btn" data-color="#99ff99" data-color-name="Verde">Verde</button>
+            <button class="btn color-btn" data-color="#ffcc99" data-color-name="Laranja">Laranja</button>
+            <button class="btn color-btn" data-color="#ffff99" data-color-name="Amarelo">Amarelo</button>
+            <button class="btn color-btn" data-color="#cc99ff" data-color-name="Roxo">Roxo</button>
+            <button class="btn color-btn" data-color="#99ffff" data-color-name="Ciano">Ciano</button>
+            <button class="btn color-btn" data-color="#ff9999" data-color-name="Vermelho">Vermelho</button>
+            <button class="btn color-btn" data-color="#9999ff" data-color-name="Azul">Azul</button>
+        </div>
+    </div>
+    
+    <div class="question" style="display: none;">
+        <p>2. Frio ou calor?</p>
+        <div class="btn-container">
+            <button class="btn temp-btn" data-temp="Frio">Frio</button>
+            <button class="btn temp-btn" data-temp="Calor">Calor</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>3. Inverno, outono, verão ou primavera?</p>
+        <div class="btn-container">
+            <button class="btn season-btn" data-season="Inverno">Inverno</button>
+            <button class="btn season-btn" data-season="Outono">Outono</button>
+            <button class="btn season-btn" data-season="Verão">Verão</button>
+            <button class="btn season-btn" data-season="Primavera">Primavera</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>4. Noite ou dia?</p>
+        <div class="btn-container">
+            <button class="btn day-night-btn" data-time="Noite">Noite</button>
+            <button class="btn day-night-btn" data-time="Dia">Dia</button>
+        </div>
+    </div>
+
+    <div class="result" style="display: none;">
+        <h2>Respostas Escolhidas:</h2>
+        <ul class="answers-list"></ul>
+        <h2>Resultado:</h2>
+        <p></p>
+    </div>
+    <script>
+     document.querySelectorAll('.color-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        corFavorita = this.getAttribute('data-color-name');
+        document.body.style.backgroundColor = corFavorita;
+        var perguntaAtual = document.querySelector('.question:nth-of-type(1)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(2)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.temp-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        temp = this.getAttribute('data-temp');
+        mostrarProximaPergunta('.season-question');
+    });
+});
+
+document.querySelectorAll('.season-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        season = this.getAttribute('data-season');
+        mostrarProximaPergunta('.day-night-question');
+    });
+});
+
+document.querySelectorAll('.day-night-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        timeOfDay = this.getAttribute('data-time');
+        mostrarResultado();
+    });
+});
+
+function mostrarProximaPergunta(perguntaAtual, proximaPergunta) {
+    perguntaAtual.style.display = 'none';
+    proximaPergunta.style.display = 'block';
+}
+
+document.querySelectorAll('.color-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        corFavorita = this.getAttribute('data-color');
+        document.body.style.backgroundColor = corFavorita;
+        var perguntaAtual = document.querySelector('.question:nth-of-type(1)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(2)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.temp-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        temp = this.getAttribute('data-temp');
+        var perguntaAtual = document.querySelector('.question:nth-of-type(2)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(3)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.season-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        season = this.getAttribute('data-season');
+        var perguntaAtual = document.querySelector('.question:nth-of-type(3)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(4)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.day-night-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        timeOfDay = this.getAttribute('data-time');
+        mostrarResultado();
+    });
+});
+
+function mostrarProximaPergunta(perguntaAtual, proximaPergunta) {
+    perguntaAtual.style.display = 'none';
+    proximaPergunta.style.display = 'block';
+}
+
+document.querySelectorAll('.color-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        corFavorita = this.getAttribute('data-color-name');
+        document.body.style.backgroundColor = corFavorita;
+        var perguntaAtual = document.querySelector('.question:nth-of-type(1)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(2)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.temp-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        temp = this.getAttribute('data-temp');
+        var perguntaAtual = document.querySelector('.question:nth-of-type(2)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(3)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.season-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        season = this.getAttribute('data-season');
+        var perguntaAtual = document.querySelector('.question:nth-of-type(3)');
+        var proximaPergunta = document.querySelector('.question:nth-of-type(4)');
+        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
+    });
+});
+
+document.querySelectorAll('.day-night-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        timeOfDay = this.getAttribute('data-time');
+        mostrarResultado();
+        
+            document.querySelectorAll('.question').forEach(function(question) {
+            question.style.display = 'none';
+        });
+    });
+});
+
+
+function mostrarResultado() {
+    var resultado = '';
+
+    if (temp === 'Frio') {
+        resultado += 'Blz, vamos ficar aconchegadinhas no ar condicionado assistindo série. ';
+    } else {
+        resultado += 'Ok, deixa que eu te esquento. ';
+    }
+
+    if (season === 'Inverno') {
+        resultado += 'Meu amor por você vai ser tão grande quanto a insegurança da Elsa.';
+    } else if (season === 'Outono') {
+        resultado += 'Vou deslumbrar suas mudanças assim como as cores das folhas de outono.';
+    } else if (season === 'Verão') {
+        resultado += 'Ok, deixa que eu passe protetor solar para você ir para a piscina.';
+    } else {
+        resultado += 'Vou te elogiar a cada muda de roupa, porque você é perfeita com qualquer cor, assim como as flores.';
+    }
+
+    if (timeOfDay === 'Noite') {
+        resultado += ' E vou ser sua corujinha leal nos seus surtos da madrugada sempre que puder.';
+    } else {
+        resultado += ' Vamos passear bastante e aproveitar as árvores, o vento e o céu.';
+    }
+
+    document.querySelector('.answers-list').innerHTML = `
+        <li>Cor Favorita: ${corFavorita}</li>
+        <li>Temperatura: ${temp}</li>
+        <li>Estação do Ano: ${season}</li>
+        <li>Hora do Dia: ${timeOfDay}</li>
+    `;
+
+    document.querySelector('.result').style.display = 'block';
+    document.querySelector('.result p').innerText = resultado;
+}
+    </script>
+</body>
+</html>

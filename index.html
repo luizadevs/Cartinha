@@ -169,13 +169,13 @@ h1 {
     </div>
 </div>
 
-
     <div class="result" style="display: none;">
         <h2>Respostas Escolhidas:</h2>
         <ul class="answers-list"></ul>
         <h2>Resultado:</h2>
         <p></p>
     </div>
+    
     <script>
      document.querySelectorAll('.color-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
@@ -204,51 +204,9 @@ document.querySelectorAll('.season-btn').forEach(function(btn) {
 document.querySelectorAll('.day-night-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         timeOfDay = this.getAttribute('data-time');
-        mostrarResultado();
     });
 });
 
-function mostrarProximaPergunta(perguntaAtual, proximaPergunta) {
-    perguntaAtual.style.display = 'none';
-    proximaPergunta.style.display = 'block';
-}
-
-document.querySelectorAll('.color-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        corFavorita = this.getAttribute('data-color');
-        document.body.style.backgroundColor = corFavorita;
-        var perguntaAtual = document.querySelector('.question:nth-of-type(1)');
-        var proximaPergunta = document.querySelector('.question:nth-of-type(2)');
-        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
-    });
-});
-
-document.querySelectorAll('.temp-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        temp = this.getAttribute('data-temp');
-        var perguntaAtual = document.querySelector('.question:nth-of-type(2)');
-        var proximaPergunta = document.querySelector('.question:nth-of-type(3)');
-        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
-    });
-});
-
-document.querySelectorAll('.season-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        season = this.getAttribute('data-season');
-        var perguntaAtual = document.querySelector('.question:nth-of-type(3)');
-        var proximaPergunta = document.querySelector('.question:nth-of-type(4)');
-        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
-    });
-});
-
-document.querySelectorAll('.day-night-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        timeOfDay = this.getAttribute('data-time');
-        mostrarProximaPergunta('.movie-show-question')
-    });
-});
-
-// Para a pergunta sobre filme ou série
 document.querySelectorAll('.movie-show-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         filmeSerie = this.getAttribute('data-film');
@@ -256,7 +214,6 @@ document.querySelectorAll('.movie-show-btn').forEach(function(btn) {
     });
 });
 
-// Para a pergunta sobre elemento
 document.querySelectorAll('.element-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         elemento = this.getAttribute('data-elem');
@@ -264,7 +221,6 @@ document.querySelectorAll('.element-btn').forEach(function(btn) {
     });
 });
 
-// Para a pergunta sobre cachorro ou gato
 document.querySelectorAll('.pet-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         pet = this.getAttribute('data-pet');
@@ -272,7 +228,6 @@ document.querySelectorAll('.pet-btn').forEach(function(btn) {
     });
 });
 
-// Para a pergunta sobre brigadeiro ou beijinho
 document.querySelectorAll('.sweet-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         doce = this.getAttribute('data-sweet');
@@ -280,7 +235,6 @@ document.querySelectorAll('.sweet-btn').forEach(function(btn) {
     });
 });
 
-// Para a pergunta sobre número
 document.querySelectorAll('.number-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         numero = this.getAttribute('data-number');
@@ -288,68 +242,26 @@ document.querySelectorAll('.number-btn').forEach(function(btn) {
     });
 });
 
-// Para a pergunta sobre abraçar ou ser abraçado
 document.querySelectorAll('.hug-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         abracar = this.getAttribute('data-hug');
-        // Esta é a última pergunta, portanto, pode realizar ação adicional aqui
-        // por exemplo, mostrar resultados ou enviar formulário
     });
 });
-    
 
 function mostrarProximaPergunta(perguntaAtual, proximaPergunta) {
     perguntaAtual.style.display = 'none';
     proximaPergunta.style.display = 'block';
 }
 
-document.querySelectorAll('.color-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        corFavorita = this.getAttribute('data-color-name');
-        document.body.style.backgroundColor = corFavorita;
-        var perguntaAtual = document.querySelector('.question:nth-of-type(1)');
-        var proximaPergunta = document.querySelector('.question:nth-of-type(2)');
-        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
-    });
-});
-
-document.querySelectorAll('.temp-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        temp = this.getAttribute('data-temp');
-        var perguntaAtual = document.querySelector('.question:nth-of-type(2)');
-        var proximaPergunta = document.querySelector('.question:nth-of-type(3)');
-        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
-    });
-});
-
-document.querySelectorAll('.season-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        season = this.getAttribute('data-season');
-        var perguntaAtual = document.querySelector('.question:nth-of-type(3)');
-        var proximaPergunta = document.querySelector('.question:nth-of-type(4)');
-        mostrarProximaPergunta(perguntaAtual, proximaPergunta);
-    });
-});
-
-document.querySelectorAll('.day-night-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        timeOfDay = this.getAttribute('data-time');
-        mostrarResultado();
-        
-            document.querySelectorAll('.question').forEach(function(question) {
-            question.style.display = 'none';
-        });
-    });
-});
-
-
 function mostrarResultado() {
     var resultado = '';
 
     if (temp === 'Frio') {
         resultado += 'Blz, vamos ficar aconchegadinhas no ar condicionado assistindo série. ';
+    } else if (temp === 'Quente') {
+        resultado += 'Legal! Vamos aproveitar o calor e fazer um piquenique no parque. ';
     } else {
-        resultado += 'Ok, Vou levar você para a piscina. ';
+        resultado += 'Hmm, parece que você gosta de uma temperatura moderada. Que tal uma caminhada pela cidade? ';
     }
 
     if (season === 'Inverno') {
@@ -368,15 +280,60 @@ function mostrarResultado() {
         resultado += ' Vamos passear bastante e aproveitar as árvores, o vento e o céu.';
     }
 
-    document.querySelector('.answers-list').innerHTML = `
+    if (filmeSerie === 'Filme') {
+        resultado += ' Que tal uma maratona de filmes? Eu pego a pipoca!';
+    } else {
+        resultado += ' Uma série é uma ótima escolha! Vamos começar uma nova hoje?';
+    }
+
+    if (elemento === 'Água') {
+        resultado += ' Estamos em sintonia! Um dia na praia seria perfeito.';
+    } else if (elemento === 'Terra') {
+        resultado += ' Que tal uma caminhada na floresta para nos reconectarmos com a natureza?';
+    } else if (elemento === 'Fogo') {
+        resultado += ' Adoro! Uma noite de churrasco ao ar livre seria incrível.';
+    } else {
+        resultado += ' Legal! Vamos aproveitar o vento e fazer um piquenique no parque.';
+    }
+
+    if (pet === 'Cachorro') {
+        resultado += ' Cachorros são os melhores companheiros de aventura!';
+    } else {
+        resultado += ' Gatos são tão fofinhos! Eles vão adorar um carinho no sofá.';
+    }
+
+    if (doce === 'Brigadeiro') {
+        resultado += ' Humm, que delícia! Um doce clássico para adoçar o dia.';
+    } else {
+        resultado += ' Beijinho é tão fofo e delicado! Vamos aproveitar essas pequenas delícias.';
+    }
+
+    resultado += ` Daria ${numero} beijos por dia em você!`;
+
+    if (abracar === 'Abraçar') {
+        resultado += ' Nada como um abraço apertado para mostrar o quanto você é querido!';
+    } else {
+        resultado += ' Sinta-se abraçado! Você é uma pessoa especial.';
+    }
+
+    var answersList = document.querySelector('.answers-list');
+    answersList.innerHTML = `
         <li>Cor Favorita: ${corFavorita}</li>
         <li>Temperatura: ${temp}</li>
         <li>Estação do Ano: ${season}</li>
         <li>Hora do Dia: ${timeOfDay}</li>
+        <li>Filme ou Série: ${filmeSerie}</li>
+        <li>Elemento: ${elemento}</li>
+        <li>Cachorro ou Gato: ${pet}</li>
+        <li>Brigadeiro ou Beijinho: ${doce}</li>
+        <li>Número de Beijos por Dia: ${numero}</li>
+        <li>Abraçar ou Ser Abraçado: ${abracar}</li>
     `;
 
-    document.querySelector('.result').style.display = 'block';
-    document.querySelector('.result p').innerText = resultado;
+    var resultSection = document.querySelector('.result');
+    resultSection.style.display = 'block';
+    var resultParagraph = document.querySelector('.result p');
+    resultParagraph.innerText = resultado;
 }
     </script>
 </body>

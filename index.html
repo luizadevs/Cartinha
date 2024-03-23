@@ -111,6 +111,55 @@ h1 {
         </div>
     </div>
 
+    <div class="question" style="display: none;">
+        <p>5. Filme ou série??</p>
+        <div class="btn-container">
+            <button class="btn movie-show-btn" data-film="Filme">Filme</button>
+            <button class="btn movie-show-btn" data-film="Série">Série</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>6. Qual elemento?</p>
+        <div class="btn-container">
+            <button class="btn element-btn" data-elem="Noite">Noite</button>
+            <button class="btn element-btn" data-elem="Dia">Dia</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>7. Cachorro ou gato?</p>
+        <div class="btn-container">
+            <button class="btn day-night-btn" data-time="Noite">Noite</button>
+            <button class="btn day-night-btn" data-time="Dia">Dia</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>8. Brigadeiro ou Beijinho?</p>
+        <div class="btn-container">
+            <button class="btn day-night-btn" data-time="Noite">Noite</button>
+            <button class="btn day-night-btn" data-time="Dia">Dia</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>9. Qual número?</p>
+        <div class="btn-container">
+            <button class="btn day-night-btn" data-time="Noite">Noite</button>
+            <button class="btn day-night-btn" data-time="Dia">Dia</button>
+        </div>
+    </div>
+
+    <div class="question" style="display: none;">
+        <p>10. Abraçar ou ser abraçada?</p>
+        <div class="btn-container">
+            <button class="btn day-night-btn" data-time="Noite">Noite</button>
+            <button class="btn day-night-btn" data-time="Dia">Dia</button>
+        </div>
+    </div>
+
+
     <div class="result" style="display: none;">
         <h2>Respostas Escolhidas:</h2>
         <ul class="answers-list"></ul>
@@ -240,7 +289,7 @@ function mostrarResultado() {
     if (temp === 'Frio') {
         resultado += 'Blz, vamos ficar aconchegadinhas no ar condicionado assistindo série. ';
     } else {
-        resultado += 'Ok, deixa que eu te esquento. ';
+        resultado += 'Ok, Vou levar você para a piscina. ';
     }
 
     if (season === 'Inverno') {

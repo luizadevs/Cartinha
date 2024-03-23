@@ -112,52 +112,62 @@ h1 {
     </div>
 
     <div class="question" style="display: none;">
-        <p>5. Filme ou série??</p>
-        <div class="btn-container">
-            <button class="btn movie-show-btn" data-film="Filme">Filme</button>
-            <button class="btn movie-show-btn" data-film="Série">Série</button>
-        </div>
+    <p>5. Filme ou série?</p>
+    <div class="btn-container">
+        <button class="btn movie-show-btn" data-film="Filme">Filme</button>
+        <button class="btn movie-show-btn" data-film="Série">Série</button>
     </div>
+</div>
 
-    <div class="question" style="display: none;">
-        <p>6. Qual elemento?</p>
-        <div class="btn-container">
-            <button class="btn element-btn" data-elem="Noite">Noite</button>
-            <button class="btn element-btn" data-elem="Dia">Dia</button>
-        </div>
+<div class="question" style="display: none;">
+    <p>6. Qual elemento?</p>
+    <div class="btn-container">
+        <button class="btn element-btn" data-elem="Água">Água</button>
+        <button class="btn element-btn" data-elem="Terra">Terra</button>
+        <button class="btn element-btn" data-elem="Fogo">Fogo</button>
+        <button class="btn element-btn" data-elem="Ar">Ar</button>
     </div>
+</div>
 
-    <div class="question" style="display: none;">
-        <p>7. Cachorro ou gato?</p>
-        <div class="btn-container">
-            <button class="btn day-night-btn" data-time="Noite">Noite</button>
-            <button class="btn day-night-btn" data-time="Dia">Dia</button>
-        </div>
+<div class="question" style="display: none;">
+    <p>7. Cachorro ou gato?</p>
+    <div class="btn-container">
+        <button class="btn pet-btn" data-pet="Cachorro">Cachorro</button>
+        <button class="btn pet-btn" data-pet="Gato">Gato</button>
     </div>
+</div>
 
-    <div class="question" style="display: none;">
-        <p>8. Brigadeiro ou Beijinho?</p>
-        <div class="btn-container">
-            <button class="btn day-night-btn" data-time="Noite">Noite</button>
-            <button class="btn day-night-btn" data-time="Dia">Dia</button>
-        </div>
+<div class="question" style="display: none;">
+    <p>8. Brigadeiro ou Beijinho?</p>
+    <div class="btn-container">
+        <button class="btn sweet-btn" data-sweet="Brigadeiro">Brigadeiro</button>
+        <button class="btn sweet-btn" data-sweet="Beijinho">Beijinho</button>
     </div>
+</div>
 
-    <div class="question" style="display: none;">
-        <p>9. Qual número?</p>
-        <div class="btn-container">
-            <button class="btn day-night-btn" data-time="Noite">Noite</button>
-            <button class="btn day-night-btn" data-time="Dia">Dia</button>
-        </div>
+<div class="question" style="display: none;">
+    <p>9. Qual número?</p>
+    <div class="btn-container">
+        <button class="btn number-btn" data-number="0">0</button>
+        <button class="btn number-btn" data-number="1">1</button>
+        <button class="btn number-btn" data-number="2">2</button>
+        <button class="btn number-btn" data-number="3">3</button>
+        <button class="btn number-btn" data-number="4">4</button>
+        <button class="btn number-btn" data-number="5">5</button>
+        <button class="btn number-btn" data-number="6">6</button>
+        <button class="btn number-btn" data-number="7">7</button>
+        <button class="btn number-btn" data-number="8">8</button>
+        <button class="btn number-btn" data-number="9">9</button>
     </div>
+</div>
 
-    <div class="question" style="display: none;">
-        <p>10. Abraçar ou ser abraçada?</p>
-        <div class="btn-container">
-            <button class="btn day-night-btn" data-time="Noite">Noite</button>
-            <button class="btn day-night-btn" data-time="Dia">Dia</button>
-        </div>
+<div class="question" style="display: none;">
+    <p>10. Abraçar ou ser abraçada?</p>
+    <div class="btn-container">
+        <button class="btn hug-btn" data-hug="Abraçar">Abraçar</button>
+        <button class="btn hug-btn" data-hug="Ser abraçada">Ser abraçada</button>
     </div>
+</div>
 
 
     <div class="result" style="display: none;">
@@ -234,9 +244,59 @@ document.querySelectorAll('.season-btn').forEach(function(btn) {
 document.querySelectorAll('.day-night-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         timeOfDay = this.getAttribute('data-time');
-        mostrarResultado();
+        mostrarProximaPergunta('.movie-show-question')
     });
 });
+
+// Para a pergunta sobre filme ou série
+document.querySelectorAll('.movie-show-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        filmeSerie = this.getAttribute('data-film');
+        mostrarProximaPergunta('.element-question');
+    });
+});
+
+// Para a pergunta sobre elemento
+document.querySelectorAll('.element-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        elemento = this.getAttribute('data-elem');
+        mostrarProximaPergunta('.pet-question');
+    });
+});
+
+// Para a pergunta sobre cachorro ou gato
+document.querySelectorAll('.pet-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        pet = this.getAttribute('data-pet');
+        mostrarProximaPergunta('.sweet-question');
+    });
+});
+
+// Para a pergunta sobre brigadeiro ou beijinho
+document.querySelectorAll('.sweet-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        doce = this.getAttribute('data-sweet');
+        mostrarProximaPergunta('.number-question');
+    });
+});
+
+// Para a pergunta sobre número
+document.querySelectorAll('.number-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        numero = this.getAttribute('data-number');
+        mostrarProximaPergunta('.hug-question');
+    });
+});
+
+// Para a pergunta sobre abraçar ou ser abraçado
+document.querySelectorAll('.hug-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        abracar = this.getAttribute('data-hug');
+        // Esta é a última pergunta, portanto, pode realizar ação adicional aqui
+        // por exemplo, mostrar resultados ou enviar formulário
+    });
+});
+    
 
 function mostrarProximaPergunta(perguntaAtual, proximaPergunta) {
     perguntaAtual.style.display = 'none';

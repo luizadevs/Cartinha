@@ -177,7 +177,7 @@ h1 {
     <script>
      document.querySelectorAll('.color-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
-        corFavorita = this.getAttribute('data-color-name');
+        corFavorita = this.getAttribute('data-color');
         document.body.style.backgroundColor = corFavorita;
         var perguntaAtual = document.querySelector('.question:nth-of-type(1)');
         var proximaPergunta = document.querySelector('.question:nth-of-type(2)');
@@ -188,61 +188,63 @@ h1 {
 document.querySelectorAll('.temp-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         temp = this.getAttribute('data-temp');
-        mostrarProximaPergunta('.season-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(2)'), document.querySelector('.question:nth-of-type(3)'));
     });
 });
 
 document.querySelectorAll('.season-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         season = this.getAttribute('data-season');
-        mostrarProximaPergunta('.day-night-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(3)'), document.querySelector('.question:nth-of-type(4)'));
     });
 });
 
 document.querySelectorAll('.day-night-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         timeOfDay = this.getAttribute('data-time');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(4)'), document.querySelector('.question:nth-of-type(5)'));
     });
 });
 
 document.querySelectorAll('.movie-show-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         filmeSerie = this.getAttribute('data-film');
-        mostrarProximaPergunta('.element-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(5)'), document.querySelector('.question:nth-of-type(6)'));
     });
 });
 
 document.querySelectorAll('.element-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         elemento = this.getAttribute('data-elem');
-        mostrarProximaPergunta('.pet-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(6)'), document.querySelector('.question:nth-of-type(7)'));
     });
 });
 
 document.querySelectorAll('.pet-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         pet = this.getAttribute('data-pet');
-        mostrarProximaPergunta('.sweet-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(7)'), document.querySelector('.question:nth-of-type(8)'));
     });
 });
 
 document.querySelectorAll('.sweet-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         doce = this.getAttribute('data-sweet');
-        mostrarProximaPergunta('.number-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(8)'), document.querySelector('.question:nth-of-type(9)'));
     });
 });
 
 document.querySelectorAll('.number-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         numero = this.getAttribute('data-number');
-        mostrarProximaPergunta('.hug-question');
+        mostrarProximaPergunta(document.querySelector('.question:nth-of-type(9)'), document.querySelector('.question:nth-of-type(10)'));
     });
 });
 
 document.querySelectorAll('.hug-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         abracar = this.getAttribute('data-hug');
+        mostrarResultado();
     });
 });
 

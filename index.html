@@ -170,7 +170,7 @@ h1 {
 </div>
 
     <div class="result" style="display: none;">
-        <h2>Adina,</h2>
+        <h2>Linda,</h2>
         <p></p>
     </div>
     
@@ -245,6 +245,8 @@ document.querySelectorAll('.hug-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
         abracar = this.getAttribute('data-hug');
         mostrarResultado();
+        document.querySelectorAll('.question').forEach(function(pergunta) {
+        pergunta.style.display = 'none';
     });
 });
 
@@ -257,11 +259,11 @@ function mostrarResultado() {
     var resultado = '';
 
     if (temp === 'Frio') {
-        resultado += 'Blz, vamos ficar aconchegadinhas no ar condicionado assistindo série. ';
+        resultado += 'Vamos ficar aconchegadinhas no ar condicionado assistindo série. ';
     } else if (temp === 'Quente') {
-        resultado += 'Legal! Vamos aproveitar o calor e curtir um churrasco com piscina. ';
+        resultado += 'Vamos aproveitar o calor e curtir um churrasco com piscina. ';
     } else {
-        resultado += 'Hmm, parece que você gosta de uma temperatura moderada. Que tal uma caminhada pela cidade? ';
+        resultado += 'Parece que você gosta de uma temperatura moderada. Que tal uma caminhada pela cidade? ';
     }
 
     if (season === 'Inverno') {
@@ -275,45 +277,45 @@ function mostrarResultado() {
     }
 
     if (timeOfDay === 'Noite') {
-        resultado += ' Vou ser sua corujinha leal nos seus surtos da madrugada sempre que puder.';
+        resultado += 'Vou ser sua corujinha leal nos seus surtos da madrugada sempre que puder.';
     } else {
-        resultado += ' Vamos passear bastante e aproveitar as árvores, o vento e o céu.';
+        resultado += 'Vamos passear bastante e aproveitar as árvores, o vento e o céu.';
     }
 
     if (filmeSerie === 'Filme') {
-        resultado += ' Vou aproveitar uma tarde de maratona de musicais.';
+        resultado += 'Vou aproveitar uma tarde de maratona de musicais.';
     } else {
-        resultado += ' Você assiste uma série nova e eu cochilo agarrada em você.';
+        resultado += 'Você assiste uma série nova e eu cochilo agarrada em você.';
     }
 
     if (elemento === 'Água') {
-        resultado += ' Vou te levar para a praia em Maceió.';
+        resultado += 'Vou te levar para a praia em Maceió.';
     } else if (elemento === 'Terra') {
         resultado += ' Vamos caminhar na praça se você quiser.';
     } else if (elemento === 'Fogo') {
-        resultado += ' Você gosta de fogo né? Anotado...';
+        resultado += 'Você gosta de fogo né? Anotado...';
     } else {
-        resultado += ' Vamos caminhar na praça se você quiser. Curtir o fresquinho...';
+        resultado += 'Vamos caminhar na praça se você quiser. Curtir o fresquinho...';
     }
 
     if (pet === 'Cachorro') {
-        resultado += ' Me chama de lulu, a melhor cadelinha.';
+        resultado += 'Me chama de lulu, a melhor cadelinha.';
     } else {
-        resultado += ' Que bom que você gosta de gatos, prazer, sua gatinha.';
+        resultado += 'Que bom que você gosta de gatos, prazer, sua gatinha.';
     }
 
     if (doce === 'Brigadeiro') {
-        resultado += ' Vou te comprar chocolatinhos, só pedir.';
+        resultado += 'Vou te comprar chocolatinhos, só pedir.';
     } else {
-        resultado += ' Não vou dividir os beijinhos com você, só dar.';
+        resultado += 'Não vou dividir os beijinhos com você, só dar.';
     }
 
-    resultado += ` Daria ${numero} beijos por dia em você!`;
+    resultado += `Vou dar ${numero} beijos por dia em você.`;
 
     if (abracar === 'Abraçar') {
-        resultado += ' Quero receber seus abraços todos os dias.';
+        resultado += 'E quero receber seus abraços todos os dias.';
     } else {
-        resultado += ' Pode deixar que eu vou te abraçar todo dia.';
+        resultado += 'E pode deixar que eu vou te abraçar todo dia.';
     }
 
     var resultSection = document.querySelector('.result');
